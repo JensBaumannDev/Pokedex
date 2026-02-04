@@ -1,0 +1,77 @@
+/* #region Type Colors - Vibrant Nintendo Palette */
+p.card-type.normal {
+  background: #a0a29f;
+}
+p.card-type.fire {
+  background: #ff4422;
+}
+p.card-type.water {
+  background: #3399ff;
+}
+p.card-type.electric {
+  background: #ffcc33;
+  color: #000;
+}
+p.card-type.grass {
+  background: #44bb44;
+}
+p.card-type.ice {
+  background: #77ddff;
+  color: #000;
+}
+p.card-type.fighting {
+  background: #d54422;
+}
+p.card-type.poison {
+  background: #aa5599;
+}
+p.card-type.ground {
+  background: #ddbb55;
+}
+p.card-type.flying {
+  background: #8899ff;
+}
+p.card-type.psychic {
+  background: #ff5599;
+}
+p.card-type.bug {
+  background: #aabb22;
+}
+p.card-type.rock {
+  background: #bbaa66;
+}
+p.card-type.ghost {
+  background: #6666bb;
+}
+p.card-type.dragon {
+  background: #7766ee;
+}
+p.card-type.dark {
+  background: #554444;
+}
+p.card-type.steel {
+  background: #aaaabb;
+  color: #000;
+}
+p.card-type.fairy {
+  background: #ee99ee;
+}
+/* #endregion */
+
+/* #region Dynamic Card Background Tint based on Primary Type */
+.card:has(.fire) .card-image-placeholder::after {
+  background: rgba(255, 68, 34, 0.15);
+}
+.card:has(.water) .card-image-placeholder::after {
+  background: rgba(51, 153, 255, 0.15);
+}
+.card:has(.grass) .card-image-placeholder::after {
+  background: rgba(68, 187, 68, 0.15);
+}
+.card:has(.electric) .card-image-placeholder::after {
+  background: rgba(255, 204, 51, 0.15);
+}
+.card:has(.psychic) .card-image-placeholder::after {
+  background: rgba(255, 85, 153, 0.15);
+}
+/* #endregion */

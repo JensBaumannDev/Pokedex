@@ -1,0 +1,126 @@
+/* #region Card Structure */
+.card {
+  background: var(--bg-card);
+  border-radius: 35px;
+  padding: 30px;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow:
+    var(--shadow-soft),
+    0 0 0 0px var(--nintendo-red) inset;
+  border: 4px solid #ffffff;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Subtle background pattern on card */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#e0e0e0 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.2;
+  z-index: 0;
+}
+/* #endregion */
+
+/* #region Card Hover Animations */
+.card:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow:
+    var(--shadow-hover),
+    0 0 0 4px var(--nintendo-red) inset;
+}
+
+.card:hover .card-image-placeholder img {
+  transform: translateY(5px) scale(1.15);
+}
+/* #endregion */
+
+/* #region Image Styling */
+.card-image-placeholder {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
+  z-index: 2;
+}
+
+/* Soft colored blob behind pokemon */
+.card-image-placeholder::after {
+  content: "";
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  background: #f0f2f5;
+  border-radius: 50%;
+  z-index: -1;
+  transition: all 0.4s ease;
+}
+
+.card:hover .card-image-placeholder::after {
+  transform: scale(1.2);
+}
+
+.card-image-placeholder img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.15));
+}
+/* #endregion */
+
+/* #region Info & Typography */
+.card-info {
+  text-align: center;
+  width: 100%;
+  z-index: 2;
+}
+
+.card-name {
+  font-size: 24px;
+  text-transform: capitalize;
+  margin-bottom: 15px;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: 0.5px;
+}
+
+.card-info > .card-type {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+/* #endregion */
+
+/* #region Type Badges */
+p.card-type {
+  font-size: 16px;
+  padding: 8px 18px;
+  border-radius: 25px;
+  text-transform: capitalize;
+  font-weight: 700;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.card:hover p.card-type {
+  transform: translateY(-3px);
+}
+/* #endregion */

@@ -7,10 +7,22 @@
 
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/assets.css" />
+    <link rel="stylesheet" href="./css/cardcolor.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
+
+    <script src="./js/template.js" defer></script>
+    <script src="./js/main.js" defer></script>
   </head>
-  <body>
-    <script src="./js/main.js"></script>
-    <script src="./js/template.js"></script>
+  <body onload="loadPokedex()">
+    <header class="header">
+      <div class="header-content">
+        <h1 class="title">Pokedex.</h1>
+        <input type="text" class="search-input" placeholder="search pokemon..." />
+      </div>
+    </header>
+
+    <main class="main-container">
+      <div id="pokedex-grid" class="grid"></div>
+    </main>
   </body>
 </html>
