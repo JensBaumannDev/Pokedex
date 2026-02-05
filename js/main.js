@@ -61,3 +61,28 @@ async function loadMorePokemon() {
     document.body.classList.remove("noscroll");
   }, 1000);
 }
+
+async function searchPokemon() {
+  let search = document.getElementById("searchInput").value.toLowerCase();
+  let results = allPokemon.filter((pokemon) => pokemon.name.includes(search));
+
+  if (search.length >= 3) {
+    document.getElementById("pokedex-grid").innerHTML = "";
+
+    if (results.length == 0) {
+      document.getElementById("pokedex-grid").innerHTML =
+        `<div class="error-container"><h2>No Pokémon found!</h2></div>`;
+    } else {
+      for (let index = 0; index < results.length; index++) {
+        const pokemon = results[index];
+        const response = await fetch(pokemon.url);
+        const details = await response.json();
+        renderPokemon(details);
+      }
+    }
+  } else {
+    document.getElementById("pokedex-grid").innerHTML = "";
+    currentLimit = 20;
+    loadPokedex();
+  }
+}
