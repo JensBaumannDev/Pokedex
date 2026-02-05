@@ -143,12 +143,11 @@ body {
 }
 
 .theme-btn::after {
-  content: "☼";
-  font-size: 18px;
+  content: "☾";
 }
 
 .dark-mode .theme-btn::after {
-  content: "☾";
+  content: "☼";
 }
 /* #endregion */
 
