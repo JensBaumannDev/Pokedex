@@ -4,21 +4,17 @@
   border-radius: 35px;
   padding: 30px;
   position: relative;
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow:
-    var(--shadow-soft),
-    0 0 0 0px var(--nintendo-red) inset;
+  box-shadow: var(--shadow-soft);
   border: 4px solid #ffffff;
   overflow: hidden;
   transform-style: preserve-3d;
-  perspective: 1000px;
 }
 
-/* Subtle background pattern on card */
 .card::before {
   content: "";
   position: absolute;
@@ -31,18 +27,59 @@
   opacity: 0.2;
   z-index: 0;
 }
+
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+  transform: skewX(-25deg);
+  z-index: 10;
+  pointer-events: none;
+}
 /* #endregion */
 
 /* #region Card Hover Animations */
 .card:hover {
-  transform: translateY(-15px) scale(1.03);
+  transform: translateY(-12px) scale(1.02);
   box-shadow:
-    var(--shadow-hover),
+    0 20px 40px rgba(0, 0, 0, 0.15),
     0 0 0 4px var(--nintendo-red) inset;
+  border-color: #ffffff;
+}
+
+.card:hover::after {
+  animation: shineSweep 0.7s ease-out;
+}
+
+@keyframes shineSweep {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    left: 200%;
+    opacity: 0;
+  }
 }
 
 .card:hover .card-image-placeholder img {
-  transform: translateY(5px) scale(1.15);
+  transform: scale(1.15) rotate(3deg);
+  filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.2));
+}
+
+.card:hover .card-image-placeholder::after {
+  transform: scale(1.1);
+}
+
+.card:hover p.card-type {
+  transform: translateY(-3px);
 }
 /* #endregion */
 
@@ -58,7 +95,6 @@
   z-index: 2;
 }
 
-/* Soft colored blob behind pokemon */
 .card-image-placeholder::after {
   content: "";
   position: absolute;
@@ -68,10 +104,6 @@
   border-radius: 50%;
   z-index: -1;
   transition: all 0.4s ease;
-}
-
-.card:hover .card-image-placeholder::after {
-  transform: scale(1.2);
 }
 
 .card-image-placeholder img {
@@ -118,9 +150,5 @@ p.card-type {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border: 2px solid #ffffff;
   transition: transform 0.3s ease;
-}
-
-.card:hover p.card-type {
-  transform: translateY(-3px);
 }
 /* #endregion */
