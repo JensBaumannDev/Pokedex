@@ -13,3 +13,7 @@ async function loadPokedex() {
     renderPokemon(details);
   }
 }
+
+function changeTheme() {
+  document.body.classList.toggle("dark-mode");
+}

@@ -60,18 +60,36 @@ p.card-type.fairy {
 
 /* #region Dynamic Card Background Tint based on Primary Type */
 .card:has(.fire) .card-image-placeholder::after {
-  background: rgba(255, 68, 34, 0.15);
+  background: rgba(255, 68, 34, 0.25);
 }
 .card:has(.water) .card-image-placeholder::after {
-  background: rgba(51, 153, 255, 0.15);
+  background: rgba(51, 153, 255, 0.25);
 }
 .card:has(.grass) .card-image-placeholder::after {
-  background: rgba(68, 187, 68, 0.15);
+  background: rgba(68, 187, 68, 0.25);
 }
 .card:has(.electric) .card-image-placeholder::after {
-  background: rgba(255, 204, 51, 0.15);
+  background: rgba(255, 204, 51, 0.25);
 }
 .card:has(.psychic) .card-image-placeholder::after {
-  background: rgba(255, 85, 153, 0.15);
+  background: rgba(255, 85, 153, 0.25);
+}
+/* #endregion */
+
+/* #region Dark Mode Tints (Higher Opacity) */
+.dark-mode .card:has(.fire) .card-image-placeholder::after {
+  background: rgba(255, 68, 34, 0.35);
+}
+.dark-mode .card:has(.water) .card-image-placeholder::after {
+  background: rgba(51, 153, 255, 0.35);
+}
+.dark-mode .card:has(.grass) .card-image-placeholder::after {
+  background: rgba(68, 187, 68, 0.35);
+}
+.dark-mode .card:has(.electric) .card-image-placeholder::after {
+  background: rgba(255, 204, 51, 0.35);
+}
+.dark-mode .card:has(.psychic) .card-image-placeholder::after {
+  background: rgba(255, 85, 153, 0.35);
 }
 /* #endregion */

@@ -80,9 +80,9 @@ body {
   left: 0;
   width: 32px;
   height: 32px;
-  border: 3px solid var(--text-dark);
+  border: 3px solid #0f172a;
   border-radius: 50%;
-  background: linear-gradient(180deg, var(--nintendo-red) 46%, var(--text-dark) 46%, var(--text-dark) 54%, #ffffff 54%);
+  background: linear-gradient(180deg, var(--nintendo-red) 46%, #0f172a 46%, #0f172a 54%, #ffffff 54%);
 }
 
 .title::after {
@@ -93,7 +93,7 @@ body {
   width: 8px;
   height: 8px;
   background: #ffffff;
-  border: 2px solid var(--text-dark);
+  border: 2px solid #0f172a;
   border-radius: 50%;
   z-index: 1;
 }
@@ -129,6 +129,7 @@ body {
   border-radius: 8px;
   border: 1px solid var(--border);
   background: var(--bg-main);
+  color: var(--text-dark);
   cursor: pointer;
   display: flex;
   align-items: center;
