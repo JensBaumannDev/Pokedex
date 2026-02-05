@@ -27,7 +27,8 @@
   box-sizing: border-box;
 }
 
-body {
+body,
+html {
   background-color: var(--bg-main);
   color: var(--text-dark);
   font-family: var(--font-stack);
@@ -35,6 +36,9 @@ body {
   background-image: radial-gradient(var(--border) 1.5px, transparent 1.5px);
   background-size: 24px 24px;
   background-attachment: fixed;
+  touch-action: manipulation;
+  min-height: 100vh;
+  display: flow-root;
 }
 /* #endregion */
 
