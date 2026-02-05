@@ -13,7 +13,10 @@
     <script src="./js/template.js" defer></script>
     <script src="./js/main.js" defer></script>
   </head>
-  <body onload="loadPokedex()">
+  <body onload="loadPokedex()" class="noscroll">
+    <div id="loader" class="loader-bg">
+      <div class="spinner"></div>
+    </div>
     <header class="header">
       <div class="header-content">
         <h1 class="title">pokedex.</h1>
@@ -27,5 +30,6 @@
     <main class="main-container">
       <div id="pokedex-grid" class="grid"></div>
     </main>
+    <button onclick="loadMorePokemon()" id="load-more-btn">load more</button>
   </body>
 </html>
