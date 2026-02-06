@@ -1,4 +1,4 @@
-/* #region Variables */
+/* #region Root Variables */
 :root {
   --bg-main: #edf2f7;
   --bg-card: #ffffff;
@@ -20,7 +20,7 @@
 }
 /* #endregion */
 
-/* #region Global Styles */
+/* #region Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -39,6 +39,10 @@ html {
   touch-action: manipulation;
   min-height: 100vh;
   display: flow-root;
+}
+
+body.noscroll {
+  overflow: hidden;
 }
 /* #endregion */
 
@@ -65,7 +69,9 @@ html {
   justify-content: space-between;
   align-items: center;
 }
+/* #endregion */
 
+/* #region Header Branding */
 .title {
   font-size: 28px;
   font-weight: 800;
@@ -103,7 +109,7 @@ html {
 }
 /* #endregion */
 
-/* #region Search & Toggle */
+/* #region Header Actions (Search + Theme Toggle) */
 .header-actions {
   display: flex;
   align-items: center;
@@ -155,7 +161,7 @@ html {
 }
 /* #endregion */
 
-/* #region Main Container */
+/* #region Layout & Grid */
 .main-container {
   max-width: 1440px;
   margin: 72px auto 0;
@@ -255,7 +261,7 @@ dialog {
 }
 
 #dialogName {
-  font-size: 32px; /* vorher: 2rem */
+  font-size: 32px;
   text-transform: capitalize;
   margin: 10px 0;
   color: var(--text-dark);

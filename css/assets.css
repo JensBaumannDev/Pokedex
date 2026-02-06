@@ -4,15 +4,15 @@
   border-radius: 35px;
   padding: 30px;
   position: relative;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: var(--shadow-soft);
-  border: 4px solid var(--bg-card);
+  cursor: pointer;
   overflow: hidden;
+  border: 4px solid var(--bg-card);
+  box-shadow: var(--shadow-soft);
   transform-style: preserve-3d;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .card::after {
@@ -42,6 +42,19 @@
   animation: shineSweep 0.7s ease-out;
 }
 
+.card:hover .card-image-placeholder img {
+  transform: scale(1.15) rotate(3deg);
+  filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.2));
+}
+
+.card:hover .card-image-placeholder::after {
+  transform: scale(1.1);
+}
+
+.card:hover p.card-type {
+  transform: translateY(-3px);
+}
+
 @keyframes shineSweep {
   0% {
     left: -100%;
@@ -55,22 +68,9 @@
     opacity: 0;
   }
 }
-
-.card:hover .card-image-placeholder img {
-  transform: scale(1.15) rotate(3deg);
-  filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.2));
-}
-
-.card:hover .card-image-placeholder::after {
-  transform: scale(1.1);
-}
-
-.card:hover p.card-type {
-  transform: translateY(-3px);
-}
 /* #endregion */
 
-/* #region Image Styling */
+/* #region Card Image Placeholder */
 .card-image-placeholder {
   width: 100%;
   height: 180px;
@@ -102,7 +102,7 @@
 }
 /* #endregion */
 
-/* #region Info & Typography */
+/* #region Card Info & Typography */
 .card-info {
   text-align: center;
   width: 100%;
@@ -111,9 +111,9 @@
 
 .card-name {
   font-size: 24px;
+  font-weight: 800;
   text-transform: capitalize;
   margin-bottom: 15px;
-  font-weight: 800;
   color: var(--text-dark);
   letter-spacing: 0.5px;
 }
@@ -180,7 +180,7 @@ p.card-type {
 }
 /* #endregion */
 
-/* #region Loader */
+/* #region Loader Background */
 .loader-bg {
   position: fixed;
   top: 0;
@@ -196,44 +196,9 @@ p.card-type {
   align-items: center;
   transition: opacity 0.3s ease;
 }
+/* #endregion */
 
-.spinner {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 4px solid #0f172a;
-  background: linear-gradient(180deg, var(--nintendo-red) 46%, #0f172a 46%, #0f172a 54%, #ffffff 54%);
-  position: relative;
-  animation: spin 1.5s linear infinite;
-}
-
-.spinner::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 24px;
-  height: 24px;
-  background: #ffffff;
-  border: 3px solid #0f172a;
-  border-radius: 50%;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.d-none {
-  opacity: 0;
-  pointer-events: none;
-}
-
+/* #region Spinner */
 .spinner {
   width: 80px;
   height: 80px;
@@ -269,9 +234,5 @@ p.card-type {
 .d-none {
   opacity: 0;
   pointer-events: none;
-}
-
-body.noscroll {
-  overflow: hidden;
 }
 /* #endregion */

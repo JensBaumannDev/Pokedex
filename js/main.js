@@ -18,6 +18,7 @@ function changeTheme() {
   }
 }
 
+let allPokemonList = [];
 let allPokemon = [];
 let currentLimit = 20;
 
@@ -26,16 +27,19 @@ async function loadPokedex() {
 
   const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=2000");
   const data = await response.json();
+
+  allPokemonList = data.results;
   allPokemon = [];
 
   for (let index = 0; index < currentLimit; index++) {
-    const pokemon = data.results[index];
+    const pokemon = allPokemonList[index];
 
     const responseDetail = await fetch(pokemon.url);
     const details = await responseDetail.json();
     allPokemon.push(details);
     renderPokemon(details);
   }
+
   setTimeout(() => {
     document.getElementById("loader").classList.add("d-none");
     document.body.classList.remove("noscroll");
