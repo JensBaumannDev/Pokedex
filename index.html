@@ -35,7 +35,7 @@
 
     <button onclick="loadMorePokemon()" id="load-more-btn">load more</button>
 
-    <dialog id="cardDialog" onclick="closeDialog()">
+    <dialog id="cardDialog">
       <div class="dialog-content" onclick="event.stopPropagation()">
         <div class="dialog-header">
           <span id="dialogId">#001</span>
@@ -48,11 +48,13 @@
           <img id="dialogImg" src="" alt="" />
         </div>
 
+        <div id="dialogTypes" class="dialog-types"></div>
+
         <div class="dialog-tabs">
-          <button class="tab-link active" data-tab="about">About</button>
-          <button class="tab-link" data-tab="base-stats">Base Stats</button>
-          <button class="tab-link" data-tab="evolution">Evolution</button>
-          <button class="tab-link" data-tab="moves">Moves</button>
+          <button class="tab-link active" onclick="showAbout()">About</button>
+          <button class="tab-link" onclick="showBaseStats()">Base Stats</button>
+          <button class="tab-link" onclick="showEvolution()">Evolution</button>
+          <button class="tab-link" onclick="showMoves()">Moves</button>
         </div>
 
         <div class="dialog-tab-content" id="dialogTabContent"></div>

@@ -269,4 +269,70 @@ p.card-type {
   width: 100%;
   min-height: 150px;
 }
+
+.dialog-types {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.dialog-types p {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* #endregion */
+
+/* #region About Tab Content */
+.dialog-tab-content p {
+  margin: 8px 0;
+  font-size: 16px;
+  line-height: 1.5;
+  text-transform: capitalize;
+  color: var(--text-dark);
+}
+
+.dialog-tab-content span {
+  font-weight: bold;
+}
+/* #endregion */
+
+/* #region Stats Tab Content */
+.stat-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  flex: 1;
+  text-transform: capitalize;
+}
+
+.stat-value {
+  width: 35px;
+  text-align: right;
+}
+
+.stat-bar-container {
+  flex: 2;
+  background-color: var(--border);
+  border-radius: 8px;
+  height: 14px;
+  overflow: hidden;
+}
+
+.stat-bar {
+  height: 100%;
+  background-color: var(--nintendo-red);
+  width: 0%;
+  border-radius: 8px;
+  transition: width 0.5s ease;
+}
+
 /* #endregion */

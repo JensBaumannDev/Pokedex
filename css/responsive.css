@@ -25,24 +25,8 @@
 }
 /* #endregion */
 
-/* #region Mobile Devices (General) */
+/* #region Mobile Devices (General 768px) */
 @media (max-width: 768px) {
-  .card:hover {
-    transform: none !important;
-    box-shadow: var(--shadow-soft) !important;
-    border-color: var(--border) !important;
-  }
-
-  .card:hover::after {
-    animation: none !important;
-    display: none !important;
-  }
-
-  .card:hover .card-image-placeholder img {
-    transform: none !important;
-    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.15)) !important;
-  }
-
   .header-content {
     flex-direction: column;
     height: auto;
@@ -89,7 +73,6 @@
   .theme-btn {
     width: 44px;
     height: 44px;
-    flex-shrink: 0;
   }
 
   .grid {
@@ -99,7 +82,7 @@
 }
 /* #endregion */
 
-/* #region Small Mobile Devices (down to 320px) */
+/* #region Small Mobile Devices 480px */
 @media (max-width: 480px) {
   .grid {
     grid-template-columns: 1fr;
@@ -132,8 +115,124 @@
     top: 11px;
   }
 
-  #loadMoreBtn {
+  #load-more-btn {
     width: 100%;
+  }
+
+  dialog {
+    max-width: 320px;
+    width: 95%;
+  }
+
+  .dialog-content {
+    padding: 15px;
+  }
+
+  .dialog-image-container {
+    width: 150px;
+    height: 150px;
+    margin: 15px 0;
+  }
+
+  #dialogImg {
+    height: 150px;
+  }
+
+  .dialog-tabs {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .dialog-tabs button {
+    font-size: 12px;
+    padding: 6px 8px;
+    width: 100%;
+  }
+
+  .dialog-tab-content p {
+    font-size: 13px;
+    word-break: break-word;
+  }
+
+  #dialogTypes p {
+    font-size: 11px;
+    margin: 2px 3px;
+  }
+}
+/* #endregion */
+
+/* #region Extra Small Mobile Devices 320px */
+@media (max-width: 320px) {
+  .main-container {
+    margin-top: 170px;
+    padding: 10px;
+  }
+
+  .card {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .title {
+    font-size: 20px;
+    padding-left: 32px;
+  }
+
+  .title::before {
+    width: 24px;
+    height: 24px;
+  }
+
+  .title::after {
+    width: 5px;
+    height: 5px;
+    left: 10px;
+    top: 10px;
+  }
+
+  #load-more-btn {
+    width: 100%;
+  }
+
+  dialog {
+    max-width: 280px;
+    padding: 8px;
+  }
+
+  .dialog-content {
+    padding: 10px;
+    min-height: auto;
+  }
+
+  .dialog-image-container {
+    width: 100px;
+    height: 100px;
+    margin: 10px 0;
+  }
+
+  #dialogImg {
+    height: 100px;
+  }
+
+  .dialog-tabs {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .dialog-tabs button {
+    font-size: 11px;
+    padding: 4px 6px;
+    width: 100%;
+  }
+
+  .dialog-tab-content p {
+    font-size: 12px;
+    word-break: break-word;
+  }
+
+  #dialogTypes p {
+    font-size: 10px;
+    margin: 2px 3px;
   }
 }
 /* #endregion */
