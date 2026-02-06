@@ -98,23 +98,22 @@ function openDialog(pokemonId) {
   document.getElementById("dialogId").innerText = `#${selectedPokemon.id.toString().padStart(3, "0")}`;
   document.getElementById("dialogName").innerText = selectedPokemon.name;
 
-  const typeContainer = document.getElementById("dialogTypes");
-  typeContainer.innerHTML = selectedPokemon.types
-    .map((typeInfo) => `<p class="card-type ${typeInfo.type.name}">${typeInfo.type.name}</p>`)
-    .join("");
-
   const dialogImage = document.getElementById("dialogImg");
   dialogImage.src = selectedPokemon.sprites.other["official-artwork"].front_default;
   dialogImage.alt = selectedPokemon.name;
 
-  const imageContainer = document.querySelector(".dialog-image-container");
-  imageContainer.className = "dialog-image-container";
-  imageContainer.classList.add(selectedPokemon.types[0].type.name);
+  const tabs = document.querySelectorAll(".tab-link");
+  const tabContent = document.getElementById("dialogTabContent");
 
-  const statsContainer = document.getElementById("dialogStats");
-  statsContainer.innerHTML = selectedPokemon.stats
-    .map((statInfo) => `<p>${statInfo.stat.name}: ${statInfo.base_stat}</p>`)
-    .join("");
+  tabs.forEach((tab) => {
+    tab.onclick = () => {
+      tabs.forEach((t) => t.classList.remove("active"));
+      tab.classList.add("active");
+      showTabContent(selectedPokemon, tab.dataset.tab);
+    };
+  });
+
+  showTabContent(selectedPokemon, "base-stats");
 
   document.getElementById("cardDialog").showModal();
 }
@@ -122,4 +121,21 @@ function openDialog(pokemonId) {
 function closeDialog() {
   let dialog = document.getElementById("cardDialog");
   dialog.close();
+}
+
+function showTabContent(pokemon, tabName) {
+  const tabContent = document.getElementById("dialogTabContent");
+  if (tabName === "about") {
+    tabContent.innerHTML = `
+      <p>Height: ${pokemon.height}</p>
+      <p>Weight: ${pokemon.weight}</p>
+      <p>Types: ${pokemon.types.map((t) => t.type.name).join(", ")}</p>
+    `;
+  } else if (tabName === "base-stats") {
+    tabContent.innerHTML = pokemon.stats.map((s) => `<p>${s.stat.name}: ${s.base_stat}</p>`).join("");
+  } else if (tabName === "evolution") {
+    tabContent.innerHTML = "<p>Evolution data not implemented yet.</p>";
+  } else if (tabName === "moves") {
+    tabContent.innerHTML = "<p>Moves data not implemented yet.</p>";
+  }
 }

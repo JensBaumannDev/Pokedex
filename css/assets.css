@@ -236,3 +236,37 @@ p.card-type {
   pointer-events: none;
 }
 /* #endregion */
+
+/* #region Dialog Tabs */
+.dialog-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.dialog-tabs .tab-link {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  background: var(--tab-bg);
+  color: var(--tab-text);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.dialog-tabs .tab-link.active {
+  background: var(--tab-bg-active);
+  color: var(--tab-text-active);
+}
+
+.dialog-tabs .tab-link:hover {
+  filter: brightness(0.9);
+}
+
+.dialog-tab-content {
+  width: 100%;
+  min-height: 150px;
+}
+/* #endregion */

@@ -43,13 +43,19 @@
         </div>
 
         <h2 id="dialogName">Pokémon Name</h2>
-        <div id="dialogTypes" class="card-type"></div>
 
         <div class="dialog-image-container">
           <img id="dialogImg" src="" alt="" />
         </div>
 
-        <div class="dialog-stats" id="dialogStats"></div>
+        <div class="dialog-tabs">
+          <button class="tab-link active" data-tab="about">About</button>
+          <button class="tab-link" data-tab="base-stats">Base Stats</button>
+          <button class="tab-link" data-tab="evolution">Evolution</button>
+          <button class="tab-link" data-tab="moves">Moves</button>
+        </div>
+
+        <div class="dialog-tab-content" id="dialogTabContent"></div>
       </div>
     </dialog>
   </body>
