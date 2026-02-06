@@ -178,3 +178,96 @@ html {
   font-size: 40px;
 }
 /* #endregion */
+
+/* #region Dialog Container */
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+}
+
+dialog {
+  border: none;
+  border-radius: 25px;
+  padding: 0;
+  max-width: 450px;
+  width: 95%;
+  /* NUTZE DEINE VARIABLEN HIER */
+  background: var(--bg-main);
+  color: var(--text-dark);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  margin: auto;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.dialog-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  min-height: 400px;
+}
+
+.dialog-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  /* Nutze eine Variable für dezenteren Text oder nimm die Hauptfarbe */
+  color: var(--text-dark);
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+
+.close-btn {
+  /* Button passt sich dem Darkmode an */
+  background: var(--border);
+  color: var(--text-dark);
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-btn:hover {
+  filter: brightness(1.2);
+}
+
+.dialog-image-container {
+  /* Ein leicht abgesetzter Hintergrund für das Bild */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+#dialogName {
+  font-size: 2rem;
+  text-transform: capitalize;
+  margin: 10px 0;
+  color: var(--text-dark);
+}
+
+.dialog-stats {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* #endregion */

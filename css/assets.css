@@ -124,6 +124,17 @@
   gap: 10px;
   flex-wrap: wrap;
 }
+
+.pokemon-number {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-dark);
+  opacity: 0.5;
+  font-family: monospace;
+}
 /* #endregion */
 
 /* #region Type Badges */

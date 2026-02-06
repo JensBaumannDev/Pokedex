@@ -18,6 +18,7 @@
     <div id="loader" class="loader-bg">
       <div class="spinner"></div>
     </div>
+
     <header class="header">
       <div class="header-content">
         <h1 class="title">pokedex.</h1>
@@ -31,6 +32,25 @@
     <main class="main-container">
       <div id="pokedex-grid" class="grid"></div>
     </main>
+
     <button onclick="loadMorePokemon()" id="load-more-btn">load more</button>
+
+    <dialog id="cardDialog" onclick="closeDialog()">
+      <div class="dialog-content" onclick="event.stopPropagation()">
+        <div class="dialog-header">
+          <span id="dialogId">#001</span>
+          <button class="close-btn" onclick="closeDialog()">X</button>
+        </div>
+
+        <h2 id="dialogName">Pokémon Name</h2>
+        <div id="dialogTypes" class="card-type"></div>
+
+        <div class="dialog-image-container">
+          <img id="dialogImg" src="" alt="" />
+        </div>
+
+        <div class="dialog-stats" id="dialogStats"></div>
+      </div>
+    </dialog>
   </body>
 </html>

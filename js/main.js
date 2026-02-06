@@ -28,14 +28,14 @@ async function loadPokedex() {
 
   const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=2000");
   const data = await response.json();
-  allPokemon = data.results;
+  allPokemon = [];
 
   for (let index = 0; index < currentLimit; index++) {
     const pokemon = data.results[index];
 
     const responseDetail = await fetch(pokemon.url);
     const details = await responseDetail.json();
-
+    allPokemon.push(details);
     renderPokemon(details);
   }
   setTimeout(() => {
@@ -49,11 +49,13 @@ async function loadMorePokemon() {
   document.body.classList.add("noscroll");
 
   for (let index = currentLimit; index < currentLimit + 20; index++) {
-    const pokemon = allPokemon[index];
-    const response = await fetch(pokemon.url);
-    const details = await response.json();
+    const pokemon = allPokemonList[index];
+    if (!pokemon) break;
+    const details = await fetch(pokemon.url).then((r) => r.json());
+    allPokemon.push(details);
     renderPokemon(details);
   }
+
   currentLimit += 20;
 
   setTimeout(() => {
@@ -85,4 +87,33 @@ async function searchPokemon() {
     currentLimit = 20;
     loadPokedex();
   }
+}
+
+function openDialog(pokemonId) {
+  const selectedPokemon = allPokemon.find((p) => p.id === pokemonId);
+  if (!selectedPokemon) return;
+
+  document.getElementById("dialogId").innerText = `#${selectedPokemon.id.toString().padStart(3, "0")}`;
+  document.getElementById("dialogName").innerText = selectedPokemon.name;
+
+  const typeContainer = document.getElementById("dialogTypes");
+  typeContainer.innerHTML = selectedPokemon.types
+    .map((typeInfo) => `<p class="card-type ${typeInfo.type.name}">${typeInfo.type.name}</p>`)
+    .join("");
+
+  const dialogImage = document.getElementById("dialogImg");
+  dialogImage.src = selectedPokemon.sprites.other["official-artwork"].front_default;
+  dialogImage.alt = selectedPokemon.name;
+
+  const statsContainer = document.getElementById("dialogStats");
+  statsContainer.innerHTML = selectedPokemon.stats
+    .map((statInfo) => `<p>${statInfo.stat.name}: ${statInfo.base_stat}</p>`)
+    .join("");
+
+  document.getElementById("cardDialog").showModal();
+}
+
+function closeDialog() {
+  let dialog = document.getElementById("cardDialog");
+  dialog.close();
 }
