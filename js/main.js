@@ -1,4 +1,3 @@
-//#region THEME TOGGLE
 function initTheme() {
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
@@ -18,7 +17,6 @@ function changeTheme() {
     localStorage.setItem("theme", "light");
   }
 }
-//#endregion
 
 let allPokemon = [];
 let currentLimit = 20;
@@ -104,6 +102,10 @@ function openDialog(pokemonId) {
   const dialogImage = document.getElementById("dialogImg");
   dialogImage.src = selectedPokemon.sprites.other["official-artwork"].front_default;
   dialogImage.alt = selectedPokemon.name;
+
+  const imageContainer = document.querySelector(".dialog-image-container");
+  imageContainer.className = "dialog-image-container";
+  imageContainer.classList.add(selectedPokemon.types[0].type.name);
 
   const statsContainer = document.getElementById("dialogStats");
   statsContainer.innerHTML = selectedPokemon.stats

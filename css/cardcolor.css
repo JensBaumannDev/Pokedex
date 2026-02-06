@@ -93,3 +93,61 @@ p.card-type.fairy {
   background: rgba(255, 85, 153, 0.35);
 }
 /* #endregion */
+
+/* #region Dialog Colors */
+.dialog-image-container.fire {
+  background: rgba(255, 68, 34, 0.25);
+}
+.dialog-image-container.water {
+  background: rgba(51, 153, 255, 0.25);
+}
+.dialog-image-container.grass {
+  background: rgba(68, 187, 68, 0.25);
+}
+.dialog-image-container.electric {
+  background: rgba(255, 204, 51, 0.25);
+}
+.dialog-image-container.psychic {
+  background: rgba(255, 85, 153, 0.25);
+}
+.dialog-image-container.ice {
+  background: rgba(119, 221, 255, 0.25);
+}
+.dialog-image-container.fighting {
+  background: rgba(213, 68, 34, 0.25);
+}
+.dialog-image-container.poison {
+  background: rgba(170, 85, 153, 0.25);
+}
+.dialog-image-container.ground {
+  background: rgba(221, 187, 85, 0.25);
+}
+.dialog-image-container.flying {
+  background: rgba(136, 153, 255, 0.25);
+}
+.dialog-image-container.bug {
+  background: rgba(170, 187, 34, 0.25);
+}
+.dialog-image-container.rock {
+  background: rgba(187, 170, 102, 0.25);
+}
+.dialog-image-container.ghost {
+  background: rgba(102, 102, 187, 0.25);
+}
+.dialog-image-container.dragon {
+  background: rgba(119, 102, 238, 0.25);
+}
+.dialog-image-container.dark {
+  background: rgba(85, 68, 68, 0.25);
+}
+.dialog-image-container.steel {
+  background: rgba(170, 170, 187, 0.25);
+}
+.dialog-image-container.fairy {
+  background: rgba(238, 153, 238, 0.25);
+}
+.dialog-image-container.normal {
+  background: rgba(160, 162, 159, 0.25);
+}
+
+/* #endregion */
