@@ -53,20 +53,25 @@ async function loadMorePokemon() {
 
 async function searchPokemon() {
   const search = document.getElementById("searchInput").value.toLowerCase();
-  const results = allPokemon.filter((p) => p.name.includes(search));
+
+  const results = allPokemonList.filter((p) => p.name.includes(search));
+
   const grid = document.getElementById("pokedex-grid");
   grid.innerHTML = "";
+
   if (search.length >= 3) {
-    if (results.length === 0) grid.innerHTML = `<div class="error-container"><h2>No Pokémon found!</h2></div>`;
-    else {
-      for (const pokemon of results) {
+    if (results.length === 0) {
+      grid.innerHTML = `<div class="error-container"><h2>No Pokémon found!</h2></div>`;
+    } else {
+      for (const pokemon of results.slice(0, 20)) {
         const details = await fetch(pokemon.url).then((r) => r.json());
         renderPokemon(details);
       }
     }
   } else {
-    currentLimit = 20;
-    loadPokedex();
+    for (const pokemon of allPokemon) {
+      renderPokemon(pokemon);
+    }
   }
 }
 
@@ -103,12 +108,10 @@ function initDialogTabs() {
 
   tabButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      // active von allen Buttons entfernen
       tabButtons.forEach((b) => b.classList.remove("active"));
-      // active auf den geklickten Button setzen
+
       btn.classList.add("active");
 
-      // content wechseln
       const tabName = btn.dataset.tab;
       if (tabName === "about") showAbout();
       else if (tabName === "base-stats") showBaseStats();
