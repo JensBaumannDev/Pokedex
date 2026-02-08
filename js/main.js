@@ -65,6 +65,7 @@ async function searchPokemon() {
     } else {
       for (const pokemon of results.slice(0, 20)) {
         const details = await fetch(pokemon.url).then((r) => r.json());
+        if (!allPokemon.find((p) => p.id === details.id)) allPokemon.push(details);
         renderPokemon(details);
       }
     }
