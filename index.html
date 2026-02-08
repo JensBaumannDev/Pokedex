@@ -45,7 +45,9 @@
         <h2 id="dialogName">Pokémon Name</h2>
 
         <div class="dialog-image-container">
+          <button class="dialog-arrow left" id="dialogPrev" onclick="prevPokemon()" aria-label="Previous Pokémon">‹</button>
           <img id="dialogImg" src="" alt="" />
+          <button class="dialog-arrow right" id="dialogNext" onclick="nextPokemon()" aria-label="Next Pokémon">›</button>
         </div>
 
         <div id="dialogTypes" class="dialog-types"></div>

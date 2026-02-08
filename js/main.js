@@ -122,6 +122,22 @@ function initDialogTabs() {
   });
 }
 
+function prevPokemon() {
+  if (!currentPokemon) return;
+  const idx = allPokemon.findIndex((p) => p.id === currentPokemon.id);
+  if (idx === -1) return;
+  const prevIdx = (idx - 1 + allPokemon.length) % allPokemon.length;
+  openDialog(allPokemon[prevIdx].id);
+}
+
+function nextPokemon() {
+  if (!currentPokemon) return;
+  const idx = allPokemon.findIndex((p) => p.id === currentPokemon.id);
+  if (idx === -1) return;
+  const nextIdx = (idx + 1) % allPokemon.length;
+  openDialog(allPokemon[nextIdx].id);
+}
+
 document.getElementById("cardDialog").addEventListener("click", (e) => {
   if (e.target === e.currentTarget) closeDialog();
 });

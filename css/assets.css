@@ -263,6 +263,7 @@ p.card-type {
 
 .dialog-tabs .tab-link:hover {
   filter: brightness(0.9);
+  background-color: var(--tab-bg2-active);
 }
 
 .dialog-tab-content {

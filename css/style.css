@@ -4,6 +4,7 @@
   --bg-card: #ffffff;
   --text-dark: #0f172a;
   --nintendo-red: #ff0000;
+  --nintendo-red2: #ff00006d;
   --glass: rgba(255, 255, 255, 0.8);
   --border: rgba(0, 0, 0, 0.1);
   --font-stack: "Inter", -apple-system, sans-serif;
@@ -11,6 +12,7 @@
   --tab-text: var(--text-dark);
   --tab-bg: var(--border);
   --tab-bg-active: var(--nintendo-red);
+  --tab-bg2-active: var(--nintendo-red2);
   --tab-text-active: #ffffff;
 }
 
@@ -200,7 +202,6 @@ dialog::backdrop {
 }
 
 dialog {
-  border: none;
   border-radius: 25px;
   padding: 0;
   max-width: 450px;
@@ -264,6 +265,7 @@ dialog {
 
 .close-btn:hover {
   filter: brightness(1.2);
+  background-color: var(--nintendo-red);
 }
 
 .dialog-image-container {
@@ -275,10 +277,41 @@ dialog {
   justify-content: center;
   align-items: center;
   margin: 20px 0;
+  position: relative;
 }
 
 #dialogImg {
   height: 200px;
+}
+
+.dialog-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-card);
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  opacity: 0.95;
+}
+
+.dialog-arrow.left {
+  left: -90px;
+}
+
+.dialog-arrow.right {
+  right: -90px;
+}
+
+.dialog-arrow:hover {
+  filter: brightness(1.1);
 }
 
 #dialogName {
