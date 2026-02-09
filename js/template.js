@@ -81,7 +81,7 @@ function getMovesHTML(pokemon) {
   levelUpMoves.forEach((move) => {
     const level = move.version_group_details.find((d) => d.move_learn_method.name === "level-up")?.level_learned_at;
     html += `
-      <span style='background: rgba(255, 0, 0, 0.1); border: 1px solid rgba(255, 0, 0, 0.3); padding: 6px 12px; border-radius: 16px; font-size: 13px; text-transform: capitalize;' title='Level ${level}'>
+      <span style='background: rgba(255, 0, 0, 0.1); border: 1px solid rgba(255, 0, 0, 0.3); padding: 6px 12px; border-radius: 16px; font-size: 16px; text-transform: capitalize;' title='Level ${level}'>
         ${move.move.name}
       </span>
     `;
