@@ -143,19 +143,35 @@
   }
 
   .dialog-tabs button {
-    font-size: 12px;
+    font-size: 16px;
     padding: 6px 8px;
     width: 100%;
   }
 
   .dialog-tab-content p {
-    font-size: 13px;
+    font-size: 16px;
     word-break: break-word;
   }
 
   #dialogTypes p {
-    font-size: 11px;
+    font-size: 16px;
     margin: 2px 3px;
+  }
+}
+/* #endregion */
+
+/* #region Mobile Devices 400px */
+@media (max-width: 400px) {
+  .dialog-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .dialog-tabs button {
+    font-size: 16px;
+    padding: 8px 12px;
+    width: 100%;
   }
 }
 /* #endregion */
@@ -217,18 +233,18 @@
   }
 
   .dialog-tabs button {
-    font-size: 11px;
+    font-size: 16px;
     padding: 4px 6px;
     width: 100%;
   }
 
   .dialog-tab-content p {
-    font-size: 12px;
+    font-size: 16px;
     word-break: break-word;
   }
 
   #dialogTypes p {
-    font-size: 10px;
+    font-size: 16px;
     margin: 2px 3px;
   }
 }
