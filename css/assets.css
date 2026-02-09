@@ -293,7 +293,6 @@ p.card-type {
   margin: 8px 0;
   font-size: 16px;
   line-height: 1.5;
-  text-transform: capitalize;
   color: var(--text-dark);
 }
 
