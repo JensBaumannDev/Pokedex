@@ -25,20 +25,48 @@ function resetTabs() {
 }
 
 function showAbout() {
-  document.getElementById("dialogTabContent").innerHTML = `
-    <p><span>Height:</span> ${currentPokemon.height}</p>
-    <p><span>Weight:</span> ${currentPokemon.weight}</p>
+  resetTabs();
+  document.querySelector(".tab-link[onclick='showAbout()']").classList.add("active");
+
+  const container = document.getElementById("dialogTabContent");
+  const heightInCm = (currentPokemon.height * 10).toFixed(0);
+  const weightInKg = (currentPokemon.weight / 10).toFixed(1);
+
+  let html = `
+    <p><span>Height:</span> ${heightInCm} cm</p>
+    <p><span>Weight:</span> ${weightInKg} kg</p>
     <p><span>Types:</span> ${currentPokemon.types.map((t) => t.type.name).join(", ")}</p>
   `;
+
+  fetch(`https://pokeapi.co/api/v2/pokemon-species/${currentPokemon.id}`)
+    .then((r) => r.json())
+    .then((species) => {
+      const description = species.flavor_text_entries
+        .find((entry) => entry.language.name === "en")
+        ?.flavor_text.replace(/\f/g, " ");
+
+      if (description) {
+        html += `<p style="margin-top: 15px; font-style: italic;">${description}</p>`;
+        container.innerHTML = html;
+      }
+    })
+    .catch(() => {
+      container.innerHTML = html;
+    });
+
+  container.innerHTML = html;
 }
 
 function showBaseStats() {
+  resetTabs();
+  document.querySelector(".tab-link[onclick='showBaseStats()']").classList.add("active");
+
   const container = document.getElementById("dialogTabContent");
   container.innerHTML = "";
 
   currentPokemon.stats.forEach((stat) => {
-    const maxStat = 100; // optische Maximalgrenze
-    const percent = Math.min((stat.base_stat / maxStat) * 100, 100); // nie über 100%
+    const maxStat = 100;
+    const percent = Math.min((stat.base_stat / maxStat) * 100, 100);
     const statHTML = `
       <div class="stat-row">
         <span class="stat-label">${stat.stat.name}</span>
