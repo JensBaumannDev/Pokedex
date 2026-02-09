@@ -53,25 +53,25 @@ async function loadMorePokemon() {
 
 async function searchPokemon() {
   const search = document.getElementById("searchInput").value.toLowerCase();
-
-  const results = allPokemonList.filter((p) => p.name.includes(search));
-
   const grid = document.getElementById("pokedex-grid");
   grid.innerHTML = "";
 
-  if (search.length >= 3) {
-    if (results.length === 0) {
-      grid.innerHTML = `<div class="error-container"><h2>No Pokémon found!</h2></div>`;
-    } else {
-      for (const pokemon of results.slice(0, 20)) {
-        const details = await fetch(pokemon.url).then((r) => r.json());
-        if (!allPokemon.find((p) => p.id === details.id)) allPokemon.push(details);
-        renderPokemon(details);
-      }
-    }
-  } else {
+  if (search.length < 3) {
     for (const pokemon of allPokemon) {
       renderPokemon(pokemon);
+    }
+    return;
+  }
+
+  const results = allPokemonList.filter((p) => p.name.startsWith(search));
+
+  if (results.length === 0) {
+    grid.innerHTML = `<div class="error-container"><h2>No Pokémon found!</h2></div>`;
+  } else {
+    for (const pokemon of results.slice(0, 20)) {
+      const details = await fetch(pokemon.url).then((r) => r.json());
+      if (!allPokemon.find((p) => p.id === details.id)) allPokemon.push(details);
+      renderPokemon(details);
     }
   }
 }
@@ -136,6 +136,60 @@ function nextPokemon() {
   if (idx === -1) return;
   const nextIdx = (idx + 1) % allPokemon.length;
   openDialog(allPokemon[nextIdx].id);
+}
+
+function renderPokemon(pokemon) {
+  document.getElementById("pokedex-grid").innerHTML += getPokemonCardHTML(pokemon);
+}
+
+function resetTabs() {
+  const tabs = document.querySelectorAll(".tab-link");
+  tabs.forEach((tab) => tab.classList.remove("active"));
+}
+
+function showAbout() {
+  resetTabs();
+  document.querySelector(".tab-link[onclick='showAbout()']").classList.add("active");
+
+  const container = document.getElementById("dialogTabContent");
+  let html = getAboutHTML(currentPokemon);
+
+  fetch(`https://pokeapi.co/api/v2/pokemon-species/${currentPokemon.id}`)
+    .then((r) => r.json())
+    .then((species) => {
+      const description = species.flavor_text_entries
+        .find((entry) => entry.language.name === "en")
+        ?.flavor_text.replace(/\f/g, " ");
+
+      if (description) {
+        html += `<p style="margin-top: 15px; font-style: italic;">${description}</p>`;
+        container.innerHTML = html;
+      }
+    })
+    .catch(() => {
+      container.innerHTML = html;
+    });
+
+  container.innerHTML = html;
+}
+
+function showBaseStats() {
+  resetTabs();
+  document.querySelector(".tab-link[onclick='showBaseStats()']").classList.add("active");
+  const container = document.getElementById("dialogTabContent");
+  container.innerHTML = getBaseStatsHTML(currentPokemon);
+}
+
+function showEvolution() {
+  resetTabs();
+  document.querySelector(".tab-link[onclick='showEvolution()']").classList.add("active");
+  document.getElementById("dialogTabContent").innerHTML = getEvolutionHTML();
+}
+
+function showMoves() {
+  resetTabs();
+  document.querySelector(".tab-link[onclick='showMoves()']").classList.add("active");
+  document.getElementById("dialogTabContent").innerHTML = getMovesHTML();
 }
 
 document.getElementById("cardDialog").addEventListener("click", (e) => {
