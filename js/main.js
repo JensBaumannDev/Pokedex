@@ -193,13 +193,13 @@ function showBaseStats() {
 function showEvolution() {
   resetTabs();
   document.querySelector(".tab-link[onclick='showEvolution()']").classList.add("active");
-  document.getElementById("dialogTabContent").innerHTML = getEvolutionHTML();
+  document.getElementById("dialogTabContent").innerHTML = getEvolutionHTML(currentPokemon);
 }
 
 function showMoves() {
   resetTabs();
   document.querySelector(".tab-link[onclick='showMoves()']").classList.add("active");
-  document.getElementById("dialogTabContent").innerHTML = getMovesHTML();
+  document.getElementById("dialogTabContent").innerHTML = getMovesHTML(currentPokemon);
 }
 
 document.getElementById("cardDialog").addEventListener("click", (e) => {
