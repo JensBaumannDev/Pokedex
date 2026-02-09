@@ -114,10 +114,20 @@ function initDialogTabs() {
       btn.classList.add("active");
 
       const tabName = btn.dataset.tab;
-      if (tabName === "about") showAbout();
-      else if (tabName === "base-stats") showBaseStats();
-      else if (tabName === "evolution") showEvolution();
-      else if (tabName === "moves") showMoves();
+      switch (tabName) {
+        case "about":
+          showAbout();
+          break;
+        case "base-stats":
+          showBaseStats();
+          break;
+        case "evolution":
+          showEvolution();
+          break;
+        case "moves":
+          showMoves();
+          break;
+      }
     });
   });
 }
