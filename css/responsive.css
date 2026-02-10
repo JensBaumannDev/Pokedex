@@ -157,6 +157,15 @@
     font-size: 16px;
     margin: 2px 3px;
   }
+
+  .evolution-image-container {
+    width: 80px;
+    height: 80px;
+  }
+
+  .evolution-chain {
+    gap: 8px;
+  }
 }
 /* #endregion */
 
@@ -172,6 +181,10 @@
     font-size: 16px;
     padding: 8px 12px;
     width: 100%;
+  }
+
+  .evolution-chain {
+    flex-wrap: wrap;
   }
 }
 /* #endregion */
@@ -246,6 +259,20 @@
   #dialogTypes p {
     font-size: 16px;
     margin: 2px 3px;
+  }
+
+  .evolution-image-container {
+    width: 60px;
+    height: 60px;
+  }
+
+  .evolution-chain {
+    gap: 4px;
+    margin-top: 10px;
+  }
+
+  .evolution-arrow {
+    font-size: 16px;
   }
 }
 /* #endregion */

@@ -48,8 +48,34 @@ function getBaseStatsHTML(pokemon) {
   return html;
 }
 
-function getEvolutionHTML(pokemon) {
-  return "<p>Evolution data not implemented yet.</p>";
+function getEvolutionHTML(evolutions) {
+  if (!evolutions || evolutions.length === 0) {
+    return "<p>No evolution data available.</p>";
+  }
+
+  let html = '<div class="evolution-chain">';
+
+  evolutions.forEach((evo, index) => {
+    if (index > 0) {
+      html += `
+        <div class="evolution-arrow">
+          <span>➔</span>
+        </div>
+      `;
+    }
+
+    html += `
+      <div class="evolution-item">
+        <div class="evolution-image-container">
+           <img src="${evo.image}" alt="${evo.name}">
+        </div>
+        <p class="evolution-name">${evo.name}</p>
+      </div>
+    `;
+  });
+
+  html += "</div>";
+  return html;
 }
 
 function getMovesHTML(pokemon) {

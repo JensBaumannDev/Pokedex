@@ -190,10 +190,40 @@ function showBaseStats() {
   container.innerHTML = getBaseStatsHTML(currentPokemon);
 }
 
-function showEvolution() {
+async function showEvolution() {
   resetTabs();
   document.querySelector(".tab-link[onclick='showEvolution()']").classList.add("active");
-  document.getElementById("dialogTabContent").innerHTML = getEvolutionHTML(currentPokemon);
+  const container = document.getElementById("dialogTabContent");
+
+  container.innerHTML = '<div class="spinner"></div>';
+
+  try {
+    const species = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${currentPokemon.id}`).then((r) => r.json());
+    const evolutionChain = await fetch(species.evolution_chain.url).then((r) => r.json());
+
+    const evolutions = [];
+    let current = evolutionChain.chain;
+
+    do {
+      const speciesUrl = current.species.url;
+      const id = speciesUrl
+        .split("/")
+        .filter((part) => !!part)
+        .pop();
+      evolutions.push({
+        name: current.species.name,
+        id: id,
+        image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
+      });
+
+      current = current.evolves_to[0];
+    } while (current);
+
+    container.innerHTML = getEvolutionHTML(evolutions);
+  } catch (e) {
+    console.error(e);
+    container.innerHTML = "<p>Could not load evolutions.</p>";
+  }
 }
 
 function showMoves() {
