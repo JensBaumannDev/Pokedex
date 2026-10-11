@@ -41,5 +41,8 @@ export function applyInterfaceLanguage() {
   updateSearchAndActions();
   byId("themeToggle").setAttribute("aria-label", translate("themeToggle"));
   byId("languageSelect").setAttribute("aria-label", translate("chooseLanguage"));
+  byId("languageTrigger").setAttribute("aria-label", translate("chooseLanguage"));
+  byId("languageMenu").setAttribute("aria-label", translate("chooseLanguage"));
+  document.querySelector(".language-picker").setAttribute("aria-label", translate("chooseLanguage"));
   updateDialogLabels();
 }

@@ -50,7 +50,7 @@ Pokedex/
 ├── vite.config.js
 ├── public/
 │   └── assets/
-│       └── pokeball.png
+│       └── pokeball.svg
 └── src/
     ├── main.js
     ├── app.js

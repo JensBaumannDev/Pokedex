@@ -102,7 +102,7 @@ function renderEvolutionError(pokemon) {
 
 async function renderEvolution() {
   const pokemon = state.currentPokemon;
-  content.innerHTML = '<div class="spinner"></div>';
+  content.innerHTML = `<div class="spinner" role="status" aria-label="${translate("loading")}"></div>`;
   try {
     const evolutions = await fetchEvolutions(pokemon);
     if (!isCurrentEvolution(pokemon)) return;

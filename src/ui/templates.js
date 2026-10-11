@@ -136,7 +136,7 @@ function getMoveChipHTML(move) {
   return [
     `<span class="move-chip" title="${translate("learnedAtLevel", { level })}">`,
     `<span class="move-name" data-resource="move" data-resource-name="${name}">${name}</span>`,
-    `<span class="move-level">Lv. ${level}</span>`, "</span>",
+    `<span class="move-level">${translate("levelShort")} ${level}</span>`, "</span>",
   ].join("");
 }
 

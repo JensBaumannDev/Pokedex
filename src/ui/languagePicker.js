@@ -3,6 +3,7 @@ import { languageDisplayNames } from "../i18n/languageNames.js";
 import { changeInterfaceLanguage } from "../i18n/index.js";
 import { state } from "../state/pokedex.js";
 import { escapeHTML } from "./html.js";
+import { applyInterfaceLanguage } from "./interface.js";
 
 const select = document.getElementById("languageSelect");
 const trigger = document.getElementById("languageTrigger");
@@ -110,6 +111,7 @@ async function handleLanguageChange() {
   closeMenu();
   localStorage.setItem("pokemonLanguage", state.currentLanguage);
   await changeInterfaceLanguage(state.currentLanguage);
+  applyInterfaceLanguage();
   await onChange();
 }
 

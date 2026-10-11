@@ -15,6 +15,8 @@
   "noEvolution": "진화 정보가 없습니다.",
   "evolutionError": "진화 정보를 불러오지 못했습니다.",
   "learnedAtLevel": "{{level}}레벨에 배움",
+  "levelShort": "레벨",
+  "loading": "불러오는 중",
   "themeToggle": "테마 전환",
   "chooseLanguage": "언어 선택",
   "closeDetails": "포켓몬 정보 닫기",

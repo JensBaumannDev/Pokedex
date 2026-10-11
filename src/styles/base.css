@@ -107,34 +107,17 @@ body.noscroll {
   color: var(--text-dark);
   display: flex;
   align-items: center;
-  position: relative;
-  padding-left: 45px;
+  gap: 8px;
   letter-spacing: -1px;
   text-transform: lowercase;
 }
 
-.title::before {
-  content: "";
-  position: absolute;
-  left: 0;
+.title-pokeball {
+  display: block;
+  flex: 0 0 auto;
   width: 32px;
   height: 32px;
-  border: 3px solid #0f172a;
-  border-radius: 50%;
-  background: linear-gradient(180deg, var(--nintendo-red) 46%, #0f172a 46%, #0f172a 54%, #ffffff 54%);
-}
-
-.title::after {
-  content: "";
-  position: absolute;
-  left: 12px;
-  top: 12px;
-  width: 8px;
-  height: 8px;
-  background: #ffffff;
-  border: 2px solid #0f172a;
-  border-radius: 50%;
-  z-index: 1;
+  object-fit: contain;
 }
 /* #endregion */
 

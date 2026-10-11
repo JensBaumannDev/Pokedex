@@ -15,6 +15,8 @@
   "noEvolution": "No hay datos de evolución disponibles.",
   "evolutionError": "No se pudieron cargar las evoluciones.",
   "learnedAtLevel": "Aprendido al nivel {{level}}",
+  "levelShort": "Niv.",
+  "loading": "Cargando",
   "themeToggle": "Cambiar tema",
   "chooseLanguage": "Elegir idioma",
   "closeDetails": "Cerrar detalles del Pokémon",

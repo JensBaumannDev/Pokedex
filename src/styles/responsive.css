@@ -48,19 +48,6 @@
 
   .title {
     font-size: 26px;
-    padding-left: 42px;
-  }
-
-  .title::before {
-    width: 30px;
-    height: 30px;
-  }
-
-  .title::after {
-    width: 8px;
-    height: 8px;
-    left: 11px;
-    top: 11px;
   }
 
   .search-input {
@@ -100,19 +87,6 @@
 
   .title {
     font-size: 22px;
-    padding-left: 38px;
-  }
-
-  .title::before {
-    width: 28px;
-    height: 28px;
-  }
-
-  .title::after {
-    width: 6px;
-    height: 6px;
-    left: 11px;
-    top: 11px;
   }
 
   #load-more-btn {
@@ -204,19 +178,6 @@
 
   .title {
     font-size: 20px;
-    padding-left: 32px;
-  }
-
-  .title::before {
-    width: 24px;
-    height: 24px;
-  }
-
-  .title::after {
-    width: 5px;
-    height: 5px;
-    left: 10px;
-    top: 10px;
   }
 
   #load-more-btn {

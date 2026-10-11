@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Pokedex</title>
-    <link rel="icon" type="image/png" href="./assets/pokeball.png" />
+    <link rel="icon" type="image/svg+xml" href="./assets/pokeball.svg" />
     <link rel="stylesheet" href="./src/styles/components/loader.css" />
     <script type="module" src="./src/main.js"></script>
   </head>
@@ -12,7 +12,7 @@
     <div id="loader" class="loader-bg" role="status" aria-label="Loading Pokédex">
       <div class="intro-content">
         <div class="intro-mark">
-          <img class="loading-pokeball" src="./assets/pokeball.png" alt="" width="92" height="92" fetchpriority="high" />
+          <img class="loading-pokeball" src="./assets/pokeball.svg" alt="" width="92" height="92" fetchpriority="high" />
         </div>
         <h2 class="intro-title">pokedex<span>.</span></h2>
         <p id="intro-caption" class="intro-caption">Preparing your Pokédex…</p>
@@ -22,19 +22,19 @@
 
     <header class="header">
       <div class="header-content">
-        <h1 class="title">pokedex.</h1>
+        <h1 class="title"><img class="title-pokeball" src="./assets/pokeball.svg" alt="" width="32" height="32" />pokedex.</h1>
         <div class="header-actions">
           <input type="search" class="search-input" placeholder="search..." id="searchInput" />
-          <label class="language-picker" for="languageSelect" aria-label="Description language">
+          <div class="language-picker" aria-label="Description language">
             <i class="bi bi-globe2 language-icon" aria-hidden="true"></i>
-            <select id="languageSelect" class="language-select-native" aria-label="Choose description language" disabled>
+            <select id="languageSelect" class="language-select-native" aria-label="Choose description language" aria-hidden="true" tabindex="-1" disabled>
               <option value="en">Loading…</option>
             </select>
             <button type="button" id="languageTrigger" class="language-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Choose description language" disabled>
               <span id="languageCurrent">Loading…</span><i class="bi bi-chevron-down" aria-hidden="true"></i>
             </button>
             <div id="languageMenu" class="language-menu" role="listbox" aria-label="Choose description language" hidden></div>
-          </label>
+          </div>
           <button type="button" id="themeToggle" class="theme-btn" aria-label="Toggle theme" aria-pressed="false">
             <i class="bi bi-moon-stars-fill theme-icon" aria-hidden="true"></i>
           </button>

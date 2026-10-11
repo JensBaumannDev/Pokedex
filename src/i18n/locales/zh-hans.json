@@ -15,6 +15,8 @@
   "noEvolution": "没有进化数据。",
   "evolutionError": "无法加载进化信息。",
   "learnedAtLevel": "{{level}}级习得",
+  "levelShort": "级",
+  "loading": "加载中",
   "themeToggle": "切换主题",
   "chooseLanguage": "选择语言",
   "closeDetails": "关闭宝可梦详情",
