@@ -93,45 +93,6 @@
     width: 100%;
   }
 
-  dialog {
-    width: 95%;
-    height: auto;
-  }
-
-  .dialog-content {
-    padding: 15px;
-  }
-
-  .dialog-image-container {
-    width: 150px;
-    height: 150px;
-    margin: 15px 0;
-  }
-
-  #dialogImg {
-    height: 150px;
-  }
-
-  .dialog-tabs {
-    gap: 5px;
-  }
-
-  .dialog-tabs button {
-    font-size: 16px;
-    padding: 6px 8px;
-    width: 100%;
-  }
-
-  .dialog-tab-content p {
-    font-size: 16px;
-    word-break: break-word;
-  }
-
-  #dialogTypes p {
-    font-size: 16px;
-    margin: 2px 3px;
-  }
-
   .evolution-image-container {
     flex-basis: 64px;
     width: 64px;
@@ -146,18 +107,6 @@
 
 /* #region Mobile Devices 400px */
 @media (max-width: 400px) {
-  .dialog-tabs {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-
-  .dialog-tabs button {
-    font-size: 16px;
-    padding: 8px 12px;
-    width: 100%;
-  }
-
   .evolution-chain {
     flex-wrap: wrap;
   }
@@ -182,45 +131,6 @@
 
   #load-more-btn {
     width: 100%;
-  }
-
-  dialog {
-    padding: 8px;
-  }
-
-  .dialog-content {
-    padding: 10px;
-    min-height: auto;
-  }
-
-  .dialog-image-container {
-    width: 100px;
-    height: 100px;
-    margin: 10px 0;
-  }
-
-  #dialogImg {
-    height: 100px;
-  }
-
-  .dialog-tabs {
-    gap: 5px;
-  }
-
-  .dialog-tabs button {
-    font-size: 16px;
-    padding: 4px 6px;
-    width: 100%;
-  }
-
-  .dialog-tab-content p {
-    font-size: 16px;
-    word-break: break-word;
-  }
-
-  #dialogTypes p {
-    font-size: 16px;
-    margin: 2px 3px;
   }
 
   .evolution-image-container {

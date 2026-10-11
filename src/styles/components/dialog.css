@@ -2,15 +2,15 @@
   --pokemon-accent: #7b8da8;
   --pokemon-tint: rgba(123, 141, 168, 0.16);
   position: fixed;
-  inset: 0;
+  inset: 50% auto auto 50%;
   margin: 0;
-  width: 100vw;
-  height: 100dvh;
+  width: min(1120px, calc(100vw - 48px));
+  height: min(760px, calc(100dvh - 48px));
   max-width: none;
   max-height: none;
   padding: 0;
   border: 0;
-  border-radius: 0;
+  border-radius: 24px;
   overflow: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
@@ -19,6 +19,7 @@
   box-shadow: 0 32px 100px rgba(8, 15, 30, 0.35);
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
+  transform: translate(-50%, -50%);
 }
 
 #cardDialog::backdrop {
@@ -507,6 +508,14 @@
 }
 
 @media (max-width: 760px) {
+  #cardDialog {
+    inset: 0;
+    width: 100vw;
+    height: 100dvh;
+    border-radius: 0;
+    transform: none;
+  }
+
   .dialog-content {
     display: flex;
     flex-direction: column;
