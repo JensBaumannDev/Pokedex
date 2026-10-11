@@ -4,27 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Pokedex</title>
-    <link rel="icon" type="image/svg" href="./assets/pokeball.png" />
-
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/assets.css" />
-    <link rel="stylesheet" href="./css/color.css" />
-    <link rel="stylesheet" href="./css/responsive.css" />
-
-    <script src="./js/template.js" defer></script>
-    <script src="./js/main.js" defer></script>
+    <link rel="icon" type="image/png" href="./assets/pokeball.png" />
+    <link rel="stylesheet" href="./src/styles/components/loader.css" />
+    <script type="module" src="./src/main.js"></script>
   </head>
-  <body onload="loadPokedex()" class="noscroll">
-    <div id="loader" class="loader-bg">
-      <div class="spinner"></div>
+  <body class="noscroll">
+    <div id="loader" class="loader-bg" role="status" aria-label="Loading Pokédex">
+      <div class="intro-content">
+        <div class="intro-mark">
+          <img class="loading-pokeball" src="./assets/pokeball.png" alt="" width="92" height="92" fetchpriority="high" />
+        </div>
+        <h2 class="intro-title">pokedex<span>.</span></h2>
+        <p id="intro-caption" class="intro-caption">Preparing your Pokédex…</p>
+        <div class="intro-progress" aria-hidden="true"><span></span></div>
+      </div>
     </div>
 
     <header class="header">
       <div class="header-content">
         <h1 class="title">pokedex.</h1>
         <div class="header-actions">
-          <input onkeyup="searchPokemon()" type="text" class="search-input" placeholder="search..." id="searchInput" />
-          <button onclick="changeTheme()" id="themeToggle" class="theme-btn"></button>
+          <input type="search" class="search-input" placeholder="search..." id="searchInput" />
+          <label class="language-picker" for="languageSelect" aria-label="Description language">
+            <i class="bi bi-globe2 language-icon" aria-hidden="true"></i>
+            <select id="languageSelect" class="language-select-native" aria-label="Choose description language" disabled>
+              <option value="en">Loading…</option>
+            </select>
+            <button type="button" id="languageTrigger" class="language-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Choose description language" disabled>
+              <span id="languageCurrent">Loading…</span><i class="bi bi-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div id="languageMenu" class="language-menu" role="listbox" aria-label="Choose description language" hidden></div>
+          </label>
+          <button type="button" id="themeToggle" class="theme-btn" aria-label="Toggle theme" aria-pressed="false">
+            <i class="bi bi-moon-stars-fill theme-icon" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
     </header>
@@ -33,33 +46,35 @@
       <div id="pokedex-grid" class="grid"></div>
     </main>
 
-    <button onclick="loadMorePokemon()" id="load-more-btn">load more</button>
+    <button type="button" id="load-more-btn">load more</button>
 
-    <dialog id="cardDialog">
-      <div class="dialog-content" onclick="event.stopPropagation()">
-        <div class="dialog-header">
-          <span id="dialogId">#001</span>
-          <button class="close-btn" onclick="closeDialog()">X</button>
-        </div>
-
-        <h2 id="dialogName">Pokémon Name</h2>
-
-        <div class="dialog-image-container">
-          <button class="dialog-arrow left" id="dialogPrev" onclick="prevPokemon()" aria-label="Previous Pokémon">‹</button>
-          <img id="dialogImg" src="" alt="" />
-          <button class="dialog-arrow right" id="dialogNext" onclick="nextPokemon()" aria-label="Next Pokémon">›</button>
-        </div>
-
-        <div id="dialogTypes" class="dialog-types"></div>
-
-        <div class="dialog-tabs">
-          <button class="tab-link active" onclick="showAbout()">About</button>
-          <button class="tab-link" onclick="showBaseStats()">Base Stats</button>
-          <button class="tab-link" onclick="showEvolution()">Evolution</button>
-          <button class="tab-link" onclick="showMoves()">Moves</button>
-        </div>
-
-        <div class="dialog-tab-content" id="dialogTabContent"></div>
+    <dialog id="cardDialog" aria-labelledby="dialogName">
+      <div class="dialog-content">
+        <section class="dialog-hero" id="dialogHero">
+          <div class="dialog-header">
+            <span id="dialogId">#001</span>
+            <button type="button" class="close-btn" data-dialog-close aria-label="Close Pokémon details"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+          </div>
+          <div class="dialog-identity">
+            <p class="dialog-eyebrow">Pokédex entry</p>
+            <h2 id="dialogName">Pokémon Name</h2>
+            <div id="dialogTypes" class="dialog-types"></div>
+          </div>
+          <div class="dialog-image-container">
+            <button type="button" class="dialog-arrow left" id="dialogPrev" aria-label="Previous Pokémon">‹</button>
+            <img id="dialogImg" src="" alt="" />
+            <button type="button" class="dialog-arrow right" id="dialogNext" aria-label="Next Pokémon">›</button>
+          </div>
+        </section>
+        <section class="dialog-details">
+          <nav class="dialog-tabs" aria-label="Pokémon details" role="tablist">
+            <button class="tab-link active" id="tab-about" data-tab="about" data-translation-key="about" role="tab" aria-selected="true">About</button>
+            <button class="tab-link" id="tab-stats" data-tab="base-stats" data-translation-key="stats" role="tab" aria-selected="false">Stats</button>
+            <button class="tab-link" id="tab-evolution" data-tab="evolution" data-translation-key="evolution" role="tab" aria-selected="false">Evolution</button>
+            <button class="tab-link" id="tab-moves" data-tab="moves" data-translation-key="moves" role="tab" aria-selected="false">Moves</button>
+          </nav>
+          <div class="dialog-tab-content" id="dialogTabContent" role="tabpanel" aria-live="polite"></div>
+        </section>
       </div>
     </dialog>
   </body>

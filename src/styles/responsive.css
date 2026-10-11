@@ -159,8 +159,9 @@
   }
 
   .evolution-image-container {
-    width: 80px;
-    height: 80px;
+    flex-basis: 64px;
+    width: 64px;
+    height: 64px;
   }
 
   .evolution-chain {
@@ -262,8 +263,9 @@
   }
 
   .evolution-image-container {
-    width: 60px;
-    height: 60px;
+    flex-basis: 56px;
+    width: 56px;
+    height: 56px;
   }
 
   .evolution-chain {

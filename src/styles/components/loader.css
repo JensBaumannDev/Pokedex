@@ -1,0 +1,130 @@
+/* #region Loader Background */
+.loader-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--intro-bg, #0b1020);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .28s ease, visibility .28s ease;
+}
+
+.loader-bg.is-leaving {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(100% - 40px, 420px);
+  text-align: center;
+  animation: intro-arrive .65s cubic-bezier(.2, .75, .25, 1) both;
+}
+
+.intro-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 112px;
+  height: 112px;
+  margin-bottom: 26px;
+}
+
+.loader-bg .loading-pokeball {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 92px;
+  height: 92px;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 30px rgba(0, 0, 0, .45));
+  animation: pokeball-load 1.5s cubic-bezier(.45, 0, .55, 1) infinite;
+}
+
+.intro-title {
+  color: var(--intro-text, #f8fafc);
+  font-size: clamp(42px, 8vw, 58px);
+  font-weight: 850;
+  letter-spacing: -.065em;
+  line-height: 1;
+  text-transform: lowercase;
+}
+
+.intro-title span {
+  color: #ef4444;
+}
+
+.intro-caption {
+  margin-top: 16px;
+  color: var(--intro-muted, #aab6ca);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: .015em;
+}
+
+.intro-progress {
+  width: 136px;
+  height: 3px;
+  margin-top: 32px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: var(--intro-track, rgba(148, 163, 184, .2));
+}
+
+.intro-progress span {
+  display: block;
+  width: 44%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #ef4444, #fca5a5);
+  animation: intro-progress 1.35s ease-in-out infinite;
+}
+
+@keyframes pokeball-load {
+  0%, 100% {
+    transform: translateY(1px) rotate(-7deg) scale(.97);
+  }
+  50% {
+    transform: translateY(-5px) rotate(7deg) scale(1.03);
+  }
+}
+
+@keyframes intro-progress {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(340%);
+  }
+}
+
+@keyframes intro-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-content,
+  .loader-bg .loading-pokeball,
+  .intro-progress span {
+    animation-duration: .01ms;
+  }
+}
+/* #endregion */
